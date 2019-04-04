@@ -47,6 +47,15 @@ class Dashboard extends React.Component {
             <Card.Text>Edit settings for the app</Card.Text>
           </Card.Body>
         </Card>
+        <Card className="dash-card">
+          <Card.Body>
+            <FontAwesomeIcon icon="redo" className="icon" />
+            <Link to="/rejection">
+              <Card.Title>Rejection List</Card.Title>
+            </Link>
+            <Card.Text>View More</Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     );
   }
