@@ -1,0 +1,19 @@
+.dashboard {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dash-card {
+  margin: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.dashboard.nav-link {
+  color: white;
+}

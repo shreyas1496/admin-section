@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar'
+import { Nav, Container } from 'react-bootstrap'
+import Dashboard from './dashboard/Dashboard';
+import JobSearch from './job/JobSearch';
+import JobDetail from './job/JobDetail';
+import Report from './reports/Report';
 
 class App extends Component {
+  state = {}
   render() {
+    const { } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router> <div>
+            <Navbar bg="dark" variant="dark" className="navbar">
+              <Navbar.Brand>
+                <Link to="/"> Admin view</Link>
+                </Navbar.Brand>
+              <Nav>
+                <Link to="/job" className="nav-link">
+                Job
+                </Link>
+              </Nav>
+              <Nav>
+                <Link to="/report" className="nav-link">
+                  Report
+                </Link>
+              </Nav>
+            </Navbar>
+            </div>
+          
+          <Container>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/job" exact component={JobSearch} />
+            <Route path="/job-detail/{id}"  component={JobDetail} />
+            <Route path="/report" exact component={Report} />
+          </Container>
+        </Router>
     );
   }
 }
