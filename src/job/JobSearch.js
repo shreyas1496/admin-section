@@ -14,18 +14,22 @@ class JobSearch extends React.Component {
       <div>
         <MaterialTable
             columns={[
-              { title: 'Sr.NO', field: 'srno' },
-              { title: 'Station Name', field: 'station_name' },
+              { title: 'MO code', field: 'mo_code' },
+              { title: 'Star Number', field: 'star_no' },
               { title: 'Status', field: 'status'},
-              { title: 'Time', field: 'time'},
-              { title: 'Operator', field: 'operator'},
+              { title: 'Last station', field: 'last_station'},
             ]}
             data={[
-              { srno: '1', station_name: 'NDE assembly & Fitment', status: 'Done', time: '11.55 AM', operator: 'abc' },
-              { srno: '2', station_name: 'Electrical', status: 'Done', time: '11.55 AM', operator: 'pqr' },
-              { srno: '3', station_name: 'ZPF Testing', status: 'In Progress', time: '14.55 AM', operator: 'zxc' },
-              { srno: '4', station_name: 'Final Assembly', status: '', time: '', operator: '' },
-              { srno: '5', station_name: 'Before Painting Inspection', status: '', time: '', operator: '' },
+              { mo_code: 'MO101', star_no: 'S0L24G1 245185', status: 'In Progress', last_station: 'ZPF Testing'},
+              { mo_code: 'MO102', star_no: 'S0L24G1 245185', status: 'Done', last_station: 'Before Painting inspection'}
+            ]}
+            actions={[
+              {
+                icon: 'call_made',
+                onClick: (e, rowData) => {
+                  this.props.history.push(`/job-detail/${rowData.mo_code}`)
+                }
+              }
             ]}
             title="Job List"
           />

@@ -6,6 +6,8 @@ import Dashboard from './dashboard/Dashboard';
 import JobSearch from './job/JobSearch';
 import JobDetail from './job/JobDetail';
 import Report from './reports/Report';
+import AddCode from './job/AddCode';
+import './App.css'
 
 class App extends Component {
   state = {}
@@ -33,8 +35,9 @@ class App extends Component {
           <Container>
             <Route path="/" exact component={Dashboard} />
             <Route path="/job" exact component={JobSearch} />
-            <Route path="/job-detail/{id}"  component={JobDetail} />
+            <Route path="/job-detail/:id"  component={JobDetail} />
             <Route path="/report" exact component={Report} />
+            <Route path="/addCode" exact component={AddCode} />
           </Container>
         </Router>
     );
