@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
         <Card className="dash-card">
           <Card.Body>
             <FontAwesomeIcon icon="rocket" className="icon" />
-            <Link to="/job">
+            <Link to="/admin/job">
               <Card.Title>Job</Card.Title>
             </Link>
             <Card.Text>Search for job details with MO code</Card.Text>
@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
         <Card className="dash-card">
           <Card.Body>
           <FontAwesomeIcon icon="database" className="icon" />
-            <Link to="/report">
+            <Link to="/admin/report">
               <Card.Title>Reports</Card.Title>
             </Link>
             <Card.Text>View interactive reports based on timings and operators</Card.Text>
@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
         <Card className="dash-card">
           <Card.Body>
           <FontAwesomeIcon icon="plus" className="icon" />
-            <Link to="/addcode">
+            <Link to="/admin/addcode">
               <Card.Title>Add MO code</Card.Title>
             </Link>
             <Card.Text>Add new MO codes via excel</Card.Text>
@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
         <Card className="dash-card">
           <Card.Body>
             <FontAwesomeIcon icon="cogs" className="icon" />
-            <Link to="/settings">
+            <Link to="/admin/settings">
               <Card.Title>Settings</Card.Title>
             </Link>
             <Card.Text>Edit settings for the app</Card.Text>
@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
         <Card className="dash-card">
           <Card.Body>
             <FontAwesomeIcon icon="redo" className="icon" />
-            <Link to="/rejection">
+            <Link to="/admin/rejection">
               <Card.Title>Rejection List</Card.Title>
             </Link>
             <Card.Text>View More</Card.Text>

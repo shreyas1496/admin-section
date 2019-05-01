@@ -8,6 +8,7 @@ import JobDetail from './job/JobDetail';
 import Report from './reports/Report';
 import AddCode from './job/AddCode';
 import './App.css'
+import Operator from './operator/Operator';
 
 class App extends Component {
   state = {}
@@ -17,15 +18,15 @@ class App extends Component {
       <Router> <div>
             <Navbar bg="dark" variant="dark" className="navbar">
               <Navbar.Brand>
-                <Link to="/"> Admin view</Link>
+                <Link to="/admin"> Admin view</Link>
                 </Navbar.Brand>
               <Nav>
-                <Link to="/job" className="nav-link">
+                <Link to="/admin/job" className="nav-link">
                 Job
                 </Link>
               </Nav>
               <Nav>
-                <Link to="/report" className="nav-link">
+                <Link to="/admin/report" className="nav-link">
                   Report
                 </Link>
               </Nav>
@@ -33,11 +34,12 @@ class App extends Component {
             </div>
           
           <Container>
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/job" exact component={JobSearch} />
-            <Route path="/job-detail/:id"  component={JobDetail} />
-            <Route path="/report" exact component={Report} />
-            <Route path="/addCode" exact component={AddCode} />
+            <Route path="/admin" exact component={Dashboard} />
+            <Route path="/admin/job" exact component={JobSearch} />
+            <Route path="/admin/job-detail/:id"  component={JobDetail} />
+            <Route path="/admin/report" exact component={Report} />
+            <Route path="/admin/addCode" exact component={AddCode} />
+            <Route path="/operator" exact component={Operator}/>
           </Container>
         </Router>
     );
