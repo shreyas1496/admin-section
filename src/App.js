@@ -9,38 +9,18 @@ import Report from './reports/Report';
 import AddCode from './job/AddCode';
 import './App.css'
 import Operator from './operator/Operator';
+import AdminHome from './router/AdminHome';
+import MainPage from './router/MainPage';
 
 class App extends Component {
   state = {}
   render() {
     const { } = this.state;
     return (
-      <Router> <div>
-            <Navbar bg="dark" variant="dark" className="navbar">
-              <Navbar.Brand>
-                <Link to="/admin"> Admin view</Link>
-                </Navbar.Brand>
-              <Nav>
-                <Link to="/admin/job" className="nav-link">
-                Job
-                </Link>
-              </Nav>
-              <Nav>
-                <Link to="/admin/report" className="nav-link">
-                  Report
-                </Link>
-              </Nav>
-            </Navbar>
-            </div>
-          
-          <Container>
-            <Route path="/admin" exact component={Dashboard} />
-            <Route path="/admin/job" exact component={JobSearch} />
-            <Route path="/admin/job-detail/:id"  component={JobDetail} />
-            <Route path="/admin/report" exact component={Report} />
-            <Route path="/admin/addCode" exact component={AddCode} />
+      <Router> 
+            <Route path="/" exact component={MainPage} />
+            <Route path="/admin" component={AdminHome} />
             <Route path="/operator" exact component={Operator}/>
-          </Container>
         </Router>
     );
   }
