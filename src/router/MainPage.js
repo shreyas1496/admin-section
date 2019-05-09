@@ -8,6 +8,7 @@ class MainPage extends React.Component {
       <ul>
         <li><Link to="/admin">Admin</Link></li>
         <li><Link to="/operator">Operator</Link></li>
+        <li><Link to="/tester">Tester</Link></li>
       </ul>
     )
   }

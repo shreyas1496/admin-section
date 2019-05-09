@@ -27,7 +27,7 @@ class JobSearch extends React.Component {
               {
                 icon: 'call_made',
                 onClick: (e, rowData) => {
-                  this.props.history.push(`/job-detail/${rowData.mo_code}`)
+                  this.props.history.push(`/admin/job-detail/${rowData.mo_code}`)
                 }
               }
             ]}

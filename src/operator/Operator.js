@@ -10,12 +10,13 @@ import {
   FormLabel,
   FormControl
 } from "react-bootstrap";
+import CraneChecksheet from "./CraneChacksheet";
 
 class Operator extends React.Component {
   state = {
     stage: 1,
     code: "",
-    formData: {}
+    formData: {},
   };
 
   sequence = ["scan", "sheet", "form"];
@@ -31,6 +32,9 @@ class Operator extends React.Component {
 
   onSubmit = () => {
     if (this.state.code === "123") {
+      this.setState({
+        errorMessage: ''
+      })
       this.next();
     } else {
       this.setState({
@@ -46,10 +50,16 @@ class Operator extends React.Component {
   render() {
     const { code, errorMessage, stage, formData } = this.state;
     console.log(this.isDis());
+    console.log(typeof localStorage.getItem('crane'))
     const screen = this.sequence[stage - 1];
     return (
-      <Container className="ver-cen">
-        
+      <div>
+<div className="com-topnav">
+        <div className="com-topnav-title">NDE Fitment and assembly</div>
+        </div>
+<Container>
+      {
+        false ? <CraneChecksheet /> : <div className="ver-cen">
         <Row className="operator">
           {screen === "scan" && (
             <div>
@@ -65,32 +75,27 @@ class Operator extends React.Component {
                 />
                 {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
               </Form.Group>
+
+              <Form.Group controlId="forccmBasicPassword">
+                <Form.Label>Station</Form.Label>
+                <Form.Control
+                  type="text"
+                  value="NDE Fitment and assembly "
+                  onChange={e => this.setState({ codse: e.target.value })}
+                  autoComplete="off"
+                  disabled
+                />
+              </Form.Group>
               <Button type="submit" onClick={this.onSubmit}>
                 Submit
               </Button>
-              {/* <Button variant="primary" onClick={this.handleShow}>
-          checksheet
-        </Button> */}
-
-        {/* <Modal show={this.state.showBox} onHide={this.hideBox}>
-          <Modal.Header closeButton>
-            <Modal.Title>Crane checkshet</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.hideBox}>
-              Save
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
+              
             </div>
           )}
 
           {screen === "sheet" && (
             <div>
-              <Row className="nav-buttons">
+              <Row className="nav-buttons" style={{justifyContent: "space-between"}}>
           {stage !== 0 && (
             <Button onClick={this.back}>
               Back
@@ -301,7 +306,7 @@ class Operator extends React.Component {
                 </FormGroup>
                 <FormGroup>
                   <FormLabel>
-                    Plese scan your Id
+                    Please scan your Id
                   </FormLabel>
                   <FormControl
                     value={formData.signature}
@@ -324,7 +329,14 @@ class Operator extends React.Component {
             </div>
           )}
         </Row>
+        </div>
+        
+      }
+        
+        
       </Container>
+      </div>
+      
     );
   }
 }

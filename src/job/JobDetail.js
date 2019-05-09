@@ -1,6 +1,8 @@
 import React from 'react';
 import MaterialTable from 'material-table'
-import { Row, Badge, Modal, Button } from 'react-bootstrap';
+import { Row, Form, Modal, Button, Table, ButtonToolbar } from 'react-bootstrap';
+import TabRow from './TabRow';
+import './JobDetail.css'
 
 const data = {
   MO101: [
@@ -19,6 +21,55 @@ const data = {
   ]
 }
 
+const tableData = [
+  {
+    level: 2,
+    partCode: 'A055J074',
+    desc: 'WASHER,STAR'
+  },
+  {
+    level: 2,
+    partCode: 'A052D953',
+    desc: 'PLT,TRANSIT',
+    nestedParts: [
+      {
+        level: 3,
+        partCode: 'A050U046',
+        desc: 'LUG,LIFTING'
+      },
+      {
+        level: 3,
+        partCode: 'A051C037',
+        desc: 'BK,THD,M8x28.0 SQ',
+        nestedParts: [
+          {
+            level: 4,
+            partCode: 'A050U066',
+            desc: 'Some level 4 part'
+          },
+          {
+            level: 4,
+            partCode: 'A055U066',
+            desc: 'Another level 4 part'
+          },
+        ]
+      },
+      {
+        level: 3,
+        partCode: 'A052G931',
+        desc: 'BUSH,SPCR,0.0,0.0'
+      },
+    ]
+  },
+  {
+    level: 2,
+    partCode: 'A053F122',
+    desc: 'SCR,FLNG HD,M8x35,HEX'
+  }
+];
+
+
+
 class JobDetail extends React.Component {
   state = {
     show: false
@@ -36,9 +87,8 @@ class JobDetail extends React.Component {
     this.setState({ show: true });
   }
   render() {
-    const {} = this.state;
-    const { match } = this.props;
-    console.log(match);
+    const { rejcom } = this.state;
+    const { match, isTester } = this.props;
     return (
       <div>
         <h3>Details</h3>
@@ -63,8 +113,48 @@ class JobDetail extends React.Component {
               }
             ]}
           />
+          <h3>Testing parameters</h3>
+          <img src="/jobdetail.jpg" style={{padding: '20px', width: '1110px'}} />
 
-<Modal show={this.state.show} onHide={this.handleClose}>
+          <h3>BOM sheet</h3>
+          <TabRow list={tableData}/>
+
+
+          <h3>Comments</h3>
+          <div className="comment-box">
+            <div className="comment">
+              <h5>Sachin</h5>
+              <div className="comment-meta">Tue 15 Jan 2:15pm - ZPF Testing</div>
+              <div>Improper Voltage: Voltage spanning too high on load</div>
+            </div>
+
+
+            <div className="comment">
+              <h5>Virat</h5>
+              <div className="comment-meta">Tue 15 Jan 3:15pm - Rework</div>
+              <div>Alternator defective. Replaced with new one. Sending back to ZPF Testing </div>
+            </div>
+          </div>
+
+          {
+            isTester && <div>
+              <Form.Group controlId="forccddmBasicPassword">
+                <Form.Label>Rejection Comments</Form.Label>
+                <Form.Control
+                  type="text"
+                  onChange={e => this.setState({ rejcom: e.target.value })}
+                  autoComplete="off"
+                  value={rejcom}
+                />
+              </Form.Group>
+              <ButtonToolbar>
+                <Button variant="success">Approve</Button>
+                <Button variant="danger">Reject</Button>
+              </ButtonToolbar>
+            </div>
+          }
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Checksheet Data</Modal.Title>
           </Modal.Header>

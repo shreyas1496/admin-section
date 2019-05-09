@@ -1,0 +1,14 @@
+.comment-box {
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.comment {
+  padding: 6px;
+  border-bottom: 1px solid;
+}
+
+.comment-meta {
+  font-size: 75%;
+  color: grey;
+}

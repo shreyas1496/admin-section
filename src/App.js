@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar'
-import { Nav, Container } from 'react-bootstrap'
-import Dashboard from './dashboard/Dashboard';
-import JobSearch from './job/JobSearch';
-import JobDetail from './job/JobDetail';
-import Report from './reports/Report';
-import AddCode from './job/AddCode';
 import './App.css'
 import Operator from './operator/Operator';
 import AdminHome from './router/AdminHome';
 import MainPage from './router/MainPage';
+import Tester from './tester/Tester';
 
 class App extends Component {
   state = {}
@@ -21,6 +15,7 @@ class App extends Component {
             <Route path="/" exact component={MainPage} />
             <Route path="/admin" component={AdminHome} />
             <Route path="/operator" exact component={Operator}/>
+            <Route path="/tester" exact render={(props) => <Tester {...props} isTester={true} />}/>
         </Router>
     );
   }

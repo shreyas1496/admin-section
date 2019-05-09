@@ -1,3 +1,23 @@
 .navbar {
   margin-bottom: 30px;
 }
+
+.operator {
+  justify-content: center;
+}
+
+.container {
+  padding-top: 25px;
+  padding-bottom: 80px;
+}
+
+.com-topnav {
+  padding: 20px;
+  background: black;
+  border-radius: 5px;
+}
+
+.com-topnav-title {
+  color: white;
+  font-size: 28px;
+}
