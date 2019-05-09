@@ -87,8 +87,8 @@ class JobDetail extends React.Component {
     this.setState({ show: true });
   }
   render() {
-    const { rejcom } = this.state;
-    const { match, isTester } = this.props;
+    const { rejcom, nextStat, revo } = this.state;
+    const { match, isTester, isReworker } = this.props;
     return (
       <div>
         <h3>Details</h3>
@@ -138,6 +138,7 @@ class JobDetail extends React.Component {
 
           {
             isTester && <div>
+              <h4>Next Actions</h4>
               <Form.Group controlId="forccddmBasicPassword">
                 <Form.Label>Rejection Comments</Form.Label>
                 <Form.Control
@@ -149,8 +150,38 @@ class JobDetail extends React.Component {
               </Form.Group>
               <ButtonToolbar>
                 <Button variant="success">Approve</Button>
-                <Button variant="danger">Reject</Button>
+                <Button variant="danger" style={{ marginLeft: '5px'}}>Reject</Button>
               </ButtonToolbar>
+            </div>
+          }
+
+{
+            isReworker && <div>
+              <h4>Next Actions</h4>
+              <Form.Group controlId="forccdddddmBasicPassword">
+                <Form.Label>Reworker Comments</Form.Label>
+                <Form.Control
+                  type="text"
+                  onChange={e => this.setState({ revo: e.target.value })}
+                  autoComplete="off"
+                  value={revo}
+                />
+              </Form.Group>
+              <Form.Group controlId="forccddmBasicPassword">
+                <Form.Label>Next station</Form.Label>
+                <Form.Control
+                as="select"
+                  type="select"
+                  onChange={e => this.setState({ nextStat: e.target.value })}
+                  autoComplete="off"
+                  value={nextStat}
+                >
+                 <option>ZPF Testing</option>
+      <option>Final Assembly</option>
+      <option>NDE Assembly and fitment</option>
+                </Form.Control>
+              </Form.Group>
+              <Button>Submit</Button>
             </div>
           }
 

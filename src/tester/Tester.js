@@ -7,11 +7,11 @@ class Tester extends React.Component {
     return (
       <div>
         <div className="com-topnav">
-        <div className="com-topnav-title">ZPF Testing</div>
+        <div className="com-topnav-title">{this.props.isTester ? 'ZPF Testing' : 'Rework station'}</div>
         </div>
         <Container>
         
-        <JobDetail match={{params: {id: "mo101"}}} isTester={this.props.isTester} />
+        <JobDetail match={{params: {id: "mo101"}}} isTester={this.props.isTester} isReworker={this.props.isReworker} />
         </Container>
       </div>
     )

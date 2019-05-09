@@ -16,6 +16,7 @@ class App extends Component {
             <Route path="/admin" component={AdminHome} />
             <Route path="/operator" exact component={Operator}/>
             <Route path="/tester" exact render={(props) => <Tester {...props} isTester={true} />}/>
+            <Route path="/reworker" exact render={(props) => <Tester {...props} isReworker={true} />}/>
         </Router>
     );
   }
