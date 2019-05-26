@@ -16,3 +16,16 @@ code {
 .navbar > a {
   color: white;
 }
+
+tr {
+  border: 1px solid;
+}
+
+td {
+  padding: 6px;
+}
+
+a {
+  text-decoration: underline;
+  color: cornflowerblue;
+}

@@ -21,3 +21,7 @@
   color: white;
   font-size: 28px;
 }
+
+th {
+  padding: 10px;
+}
